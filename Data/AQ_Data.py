@@ -6,7 +6,7 @@ from datetime import datetime
 from meteostat import Point, Daily, Monthly
 
 # Data per Hour since 2013 to 2022
-# Agregated Data, where for each day (month) from 2013 to 2022, 
+# Agregated Data, where for each day (month) from 2013 to 2022,
 # the daily (monthly) value is calculated as the average of 24 (30-31) individual values.
 
 #NO2
@@ -196,3 +196,21 @@ def lade_data_for_pcp():
     spalten.insert(1, "Monat")
     df_final = df_final[spalten]
     return df_final
+
+def lade_data_for_AQI():
+    daily_averages_PM2_5 = lade_aver_PM2_5()
+    daily_averages_PM10 = lade_aver_PM10()
+    daily_averages_O3 = lade_aver_O3()
+
+    AQI_data = [daily_averages_O3["Start"], daily_averages_O3["Value"], daily_averages_PM2_5["Value"],
+                daily_averages_PM10["Value"]]
+    pollutants = ["Date", "O3", "PM 2.5", "PM 10"]
+
+    comb_df = pd.concat(AQI_data, axis=1, keys=pollutants)
+    comb_df['ID'] = range(1, len(comb_df) + 1)
+
+    comb_df.set_index(("ID"), inplace=True)
+    comb_df.fillna(0.1, inplace=True)
+    comb_df["Date"] = pd.to_datetime(comb_df["Date"])
+    comb_df["AQI"] = comb_df["PM 2.5"] + comb_df["PM 10"] + comb_df["O3"]
+    return comb_df
