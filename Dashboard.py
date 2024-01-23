@@ -221,7 +221,6 @@ def get_aqi_from_api(date):
     hourly_dataframe_new['date'] = pd.to_datetime(hourly_dataframe_new['date'])
     hourly_dataframe_new.set_index('date', inplace=True)
 
-    # Berechnung des täglichen Durchschnitts der AQI-Werte
     daily_averages_aqi = hourly_dataframe_new.resample('D').mean().reset_index()
     return daily_averages_aqi
 
@@ -509,40 +508,21 @@ def toggle_trace(clickData, figure):
     Output('half_donut', 'figure'),
     [Input('calender', 'date')]
 )
-# def show_gauge_chart(selected_date):
-#     if not selected_date:
-#         selected_date = daily_AQI['Date'].dt.strftime('%Y-%m-%d').max()
-#
-#     gauge_chart = update_gauge_chart(daily_AQI, selected_date)
-#     if gauge_chart is not None:
-#         return gauge_chart
-#     else:
-#         fig = go.Figure()
-#         fig.add_annotation(text="Data is missing",
-#                            xref="paper", yref="paper",
-#                            x=0.5, y=0.5, showarrow=False,
-#                            font=dict(size=16, color="red"))
-#         return fig
 
 def show_gauge_chart(selected_date):
     global daily_AQI
-    is_api_data = False  # Flag, um zu überprüfen, ob die Daten von der API kommen
+    is_api_data = False 
 
-    # Prüfen, ob ein Datum ausgewählt wurde
     if not selected_date:
-        # Wenn kein Datum ausgewählt wurde, verwenden Sie das neueste Datum aus dem CSV
         selected_date = daily_AQI['Date'].dt.strftime('%Y-%m-%d').max()
     else:
-        # Umwandeln des ausgewählten Datums in das richtige Format
         selected_date = pd.to_datetime(selected_date)
 
-    # Entscheiden, ob Daten aus dem CSV oder der API geholt werden sollen
-    if selected_date > pd.to_datetime('2022-12-31'):  # Ersetzen Sie dies mit dem tatsächlichen letzten Datum im CSV
-        # Abrufen der Daten von der API
+    # Select CSV or API 
+    if selected_date > pd.to_datetime('2022-12-31'): 
         daily_data_from_api = get_aqi_from_api(selected_date)
         is_api_data = True
     else:
-        # Daten aus dem CSV verwenden
         daily_data_from_api = daily_AQI
 
     # Gauge-Chart
