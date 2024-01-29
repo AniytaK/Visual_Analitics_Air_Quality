@@ -14,12 +14,12 @@ from retry_requests import retry
 
 #DATA
 #Air Quality Data per Hour
-df_NO2 = pd.read_parquet("D:/Studium/3_HS 2023/Visual Analitics/Projekt/Daten/DE/Berlin/ParquetFiles/E1a/SPO.DE_DEBE065_NO2_dataGroup1.parquet")
-df_O3 = pd.read_parquet("D:/Studium/3_HS 2023/Visual Analitics/Projekt/Daten/DE/Berlin/ParquetFiles/E1a/SPO.DE_DEBE065_O3_dataGroup1.parquet")
-df_SO2 = pd.read_parquet("D:/Studium/3_HS 2023/Visual Analitics/Projekt/Daten/DE/Berlin/ParquetFiles/E1a/SPO.DE_DEBE065_SO2_dataGroup1.parquet")
-df_CO = pd.read_parquet("D:/Studium/3_HS 2023/Visual Analitics/Projekt/Daten/DE/Berlin/ParquetFiles/E1a/SPO.DE_DEBE065_CO_dataGroup1.parquet")
-df_PM2_5 = pd.read_parquet("D:/Studium/3_HS 2023/Visual Analitics/Projekt/Daten/DE/Berlin/ParquetFiles/E1a/SPO.DE_DEBE065_PM2_dataGroup1.parquet")
-df_PM10 = pd.read_parquet("D:/Studium/3_HS 2023/Visual Analitics/Projekt/Daten/DE/Berlin/ParquetFiles/E1a/SPO.DE_DEBE065_PM1_dataGroup1.parquet")
+df_NO2 = pd.read_parquet("SPO.DE_DEBE065_NO2_dataGroup1.parquet")
+df_O3 = pd.read_parquet("SPO.DE_DEBE062_O3_dataGroup1.parquet")
+df_SO2 = pd.read_parquet("SPO.DE_DEBE065_SO2_dataGroup1.parquet")
+df_CO = pd.read_parquet("SPO.DE_DEBE065_CO_dataGroup1.parquet")
+df_PM2_5 = pd.read_parquet("SPO.DE_DEBE065_PM2_dataGroup1.parquet")
+df_PM10 = pd.read_parquet("SPO.DE_DEBE065_PM1_dataGroup1.parquet")
 data_frames = [df_O3, df_NO2, df_PM10, df_PM2_5, df_SO2, df_CO]
 pollutants = ["O3", "NO2", "PM 10", "PM 2.5", "SO2", "CO"]
 
