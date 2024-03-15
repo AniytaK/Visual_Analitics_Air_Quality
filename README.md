@@ -14,6 +14,6 @@ Numpy,
 MatplotLib,  
 Seaborn,  
 Plotly,  
-Dash, 
+Dash,  
 Folium,  
 Sklearn 
