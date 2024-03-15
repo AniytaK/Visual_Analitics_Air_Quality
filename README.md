@@ -7,8 +7,11 @@ This project involves an in-depth analysis of metadata from the European Environ
 
 Software's and Libraries:
 
-Jupyter Notebook 
-Python 3.x 
-Pandas
-Plotly
-Dash
+Jupyter Notebook,  
+Python 3.x,  
+Pandas, 
+Numpy, 
+MatplotLib, 
+Plotly, 
+Dash,
+Folium
