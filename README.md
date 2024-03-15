@@ -9,9 +9,11 @@ Software's and Libraries:
 
 Jupyter Notebook,  
 Python 3.x,  
-Pandas, 
-Numpy, 
-MatplotLib, 
-Plotly, 
-Dash,
-Folium
+Pandas,  
+Numpy,  
+MatplotLib,  
+Seaborn,  
+Plotly,  
+Dash, 
+Folium,  
+Sklearn 
