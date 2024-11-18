@@ -17,3 +17,9 @@ Plotly,
 Dash,  
 Folium,  
 Sklearn 
+
+
+Dashboard:
+
+![Dashboard](https://github.com/user-attachments/assets/8e43b12f-e0f5-48a3-8b01-3e79784591fc)
+
