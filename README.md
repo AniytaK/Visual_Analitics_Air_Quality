@@ -5,7 +5,7 @@ Exploration of the Air Quality data in a visual analytics tool.
 
 This project involves an in-depth analysis of metadata from the European Environment Agency (EEA) and data from Open-Meteo, which is combined with weather data in a specially developed dashboard. 
 
-Software's and Libraries:
+## Software's and Libraries:
 
 Jupyter Notebook,  
 Python 3.x,  
@@ -19,7 +19,7 @@ Folium,
 Sklearn 
 
 
-Dashboard:
+## Dashboard:
 
 ![Dashboard](https://github.com/user-attachments/assets/8e43b12f-e0f5-48a3-8b01-3e79784591fc)
 
